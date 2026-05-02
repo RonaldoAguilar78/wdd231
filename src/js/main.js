@@ -1,34 +1,22 @@
-import { getParkData } from "./parkService.mjs";
-
+import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import setHeaderFooter from "./setHeaderFooter.mjs";
+import { mediaCardTemplate } from "./templates.mjs";
 const parkData = getParkData();
 
-import { getParkData } from './parkService.mjs';
-
-const parkData = getParkData();
-
-// 1. Update the disclaimer link and text
-const disclaimerLink = document.querySelector(".disclaimer > a");
-disclaimerLink.href = parkData.url;
-disclaimerLink.innerHTML = parkData.fullName;
-
-// 2. Update the page title (the text in the browser tab)
-document.title = parkData.fullName;
-
-// 3. Update the hero image (using the first image in the data list)
-const heroImage = document.querySelector(".hero-banner > img");
-// Assuming the data structure follows the standard NPS API format
-heroImage.src = parkData.images[0].url;
-heroImage.alt = parkData.images[0].altText;
-
-// 4. Update the park name, designation, and states using a template
-function parkInfoTemplate(info) {
-  return `
-    <a href="${info.url}" class="hero-banner__title">${info.name}</a>
-    <p class="hero-banner__subtitle">
-      <span>${info.designation}</span>
-      <span>${info.states}</span>
-    </p>`;
+function setParkIntro(data) {
+  const introEl = document.querySelector(".intro");
+  introEl.innerHTML = `<h1>${parkData.fullName}</h1>
+  <p>${parkData.description}</p>`;
 }
 
-const heroContent = document.querySelector(".hero-banner__content");
-heroContent.innerHTML = parkInfoTemplate(parkData);
+function setParkInfoLinks(data) {
+  const infoEl = document.querySelector(".info");
+  // we have multiple links to build...so we map to transform the array of objects into an array of HTML strings.
+  const html = data.map(mediaCardTemplate);
+  // join the array of strings into one string and insert it into the section
+  infoEl.insertAdjacentHTML("afterbegin", html.join(""));
+}
+
+setHeaderFooter(parkData);
+setParkIntro(parkData);
+setParkInfoLinks(parkInfoLinks);
