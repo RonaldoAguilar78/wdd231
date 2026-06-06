@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Survival Guide</title>
+    <meta name="description" content="A robust student study planner and dashboard built with accessibility and progressive enhancement in mind.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="logo">Semester Survival Guide</div>
+        <nav>
+            <a href="#" class="active">Dashboard</a>
+            <a href="#">GPA Calc</a>
+            <a href="#">Study Timer</a>
+        </nav>
+    </header>
+
+    <main class="dashboard-grid">
+        
+        <header class="dashboard-hero">
+            <h1>Keep pushing, week 8 is almost over!</h1>
+            <p id="quote-placeholder">"Success is the sum of small efforts, repeated day in and day out."</p>
+        </header>
+
+        <aside class="sidebar-left">
+            <section class="card task-tracker">
+                <h2>Quick Add</h2>
+                <div class="quick-add">
+                    <label for="new-task" class="sr-only">New Assignment</label>
+                    <input type="text" id="new-task" placeholder="e.g., Read Chapter 4...">
+                    
+                    <label for="task-date" class="sr-only">Due Date</label>
+                    <input type="date" id="task-date">
+                    
+                    <button type="button" class="btn-primary">Add Task</button>
+                </div>
+                
+                <ul class="task-list">
+                    <li>
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Submit CSS Grid Layout</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Study for Midterm</label>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        <section class="main-content">
+            <div class="card todo-container">
+                <h2>Semester Task List</h2>
+                <p class="section-desc">Manage your core daily objectives and project milestones below.</p>
+                
+                <div class="todo-form">
+                    <div class="form-group text-input">
+                        <label for="main-todo-input" class="sr-only">Add a new task</label>
+                        <input type="text" id="main-todo-input" placeholder="What needs to be done?">
+                    </div>
+                    <div class="form-group select-input">
+                        <label for="main-todo-category" class="sr-only">Category</label>
+                        <select id="main-todo-category">
+                            <option value="school">School Work</option>
+                            <option value="team">Team Collaboration</option>
+                            <option value="personal">Personal Reading / Growth</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-primary" id="add-todo-btn">Add Item</button>
+                </div>
+
+                <ul class="todo-list">
+                    <li class="todo-item">
+                        <input type="checkbox" id="todo-1">
+                        <label for="todo-1">Study for upcoming module exams</label>
+                        <span class="category-badge school">School</span>
+                    </li>
+                    <li class="todo-item">
+                        <input type="checkbox" id="todo-2">
+                        <label for="todo-2">Read a book for general study hours</label>
+                        <span class="category-badge personal">Personal</span>
+                    </li>
+                    <li class="todo-item">
+                        <input type="checkbox" id="todo-3">
+                        <label for="todo-3">Meet with the team to coordinate project components</label>
+                        <span class="category-badge team">Team</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <aside class="sidebar-right">
+            <section class="card study-tool">
+                <h2>Study Timer</h2>
+                <div class="clock-placeholder">
+                    <span class="time-display">25:00</span>
+                </div>
+                <button type="button" class="btn-secondary">Start Pomodoro</button>
+            </section>
+
+            <section class="card exam-countdown">
+                <h2>Exam Countdowns</h2>
+                <div class="countdown-item">
+                    <strong>Web Development Final</strong>
+                    <span>14 Days Left</span>
+                </div>
+                <div class="countdown-item">
+                    <strong>Software Engineering Midterm</strong>
+                    <span>5 Days Left</span>
+                </div>
+            </section>
+        </aside>
+
+    </main>
+
+</body>
+</html>
